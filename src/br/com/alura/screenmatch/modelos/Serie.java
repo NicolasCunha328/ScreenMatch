@@ -1,63 +1,45 @@
 package br.com.alura.screenmatch.modelos;
 
-public class Serie {
-    private String nome;
-    private int anoDeLancamento;
-    private boolean incluidoNoPlano;
-    private double somaDasAvaliacoes;
-    private int totalAvaliacoes;
-    private int duracaoEmMinutos;
+public class Serie extends Titulo {
     private int temporadas;
     private int episodiosPorTemporada;
     private boolean ativa;
+    private int minutosPorEpisodio;
 
-    public String getNome() {
-        return nome;
+    public int getTemporadas() {
+        return temporadas;
     }
 
-    public int getAnoDeLancamento() {
-        return anoDeLancamento;
+    public void setTemporadas(int temporadas) {
+        this.temporadas = temporadas;
     }
 
-    public boolean isIncluidoNoPlano() {
-        return incluidoNoPlano;
+    public int getEpisodiosPorTemporada() {
+        return episodiosPorTemporada;
     }
 
+    public void setEpisodiosPorTemporada(int episodiosPorTemporada) {
+        this.episodiosPorTemporada = episodiosPorTemporada;
+    }
+
+    public boolean isAtiva() {
+        return ativa;
+    }
+
+    public void setAtiva(boolean ativa) {
+        this.ativa = ativa;
+    }
+
+    public int getMinutosPorEpisodio() {
+        return minutosPorEpisodio;
+    }
+
+    public void setMinutosPorEpisodio(int minutosPorEpisodio) {
+        this.minutosPorEpisodio = minutosPorEpisodio;
+    }
+
+    @Override
     public int getDuracaoEmMinutos() {
-        return duracaoEmMinutos;
-    }
-
-    public int getTotalAvaliacoes(){
-        return totalAvaliacoes;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setAnoDeLancamento(int anoDeLancamento) {
-        this.anoDeLancamento = anoDeLancamento;
-    }
-
-    public void setIncluidoNoPlano(boolean incluidoNoPlano) {
-        this.incluidoNoPlano = incluidoNoPlano;
-    }
-
-    public void setDuracaoEmMinutos(int duracaoEmMinutos) {
-        this.duracaoEmMinutos = duracaoEmMinutos;
-    }
-
-    public void exibirFichaTecnica(){
-        System.out.println("Nome do br.com.alura.screenmatch.modelos.Filme: " + nome);
-        System.out.println("Ano de lançamento: " + anoDeLancamento);
-    }
-
-    public void avalia(double nota){
-        somaDasAvaliacoes += nota;
-        totalAvaliacoes++;
-    }
-
-    public double pegaMedia(){
-        return somaDasAvaliacoes / totalAvaliacoes;
+        return (temporadas * episodiosPorTemporada) * minutosPorEpisodio;
     }
 }
