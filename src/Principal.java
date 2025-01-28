@@ -1,4 +1,6 @@
 import br.com.alura.screenmatch.calculo.CalculadoraDeTempo;
+import br.com.alura.screenmatch.calculo.FiltroRecomendacao;
+import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
@@ -7,6 +9,8 @@ public class Principal {
         Filme meuFilme = new Filme();
         Serie minhaSerie = new Serie();
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        Episodio episodio = new Episodio();
 
         meuFilme.setNome("Suzume");
         meuFilme.setAnoDeLancamento(2022);
@@ -36,5 +40,12 @@ public class Principal {
         calculadora.inclui(outroFilme);
         calculadora.inclui(minhaSerie);
         System.out.println(calculadora.getTempoTotal());
+
+        filtro.filtra(meuFilme);
+
+        episodio.setNumero(1);
+        episodio.setSerie(minhaSerie);
+        episodio.setTotalVisualizacoes(500);
+        filtro.filtra(episodio);
     }
 }
