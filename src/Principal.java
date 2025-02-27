@@ -4,15 +4,17 @@ import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
+        Filme meuFilme = new Filme("Suzume");
         Serie minhaSerie = new Serie();
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
         FiltroRecomendacao filtro = new FiltroRecomendacao();
         Episodio episodio = new Episodio();
 
-        meuFilme.setNome("Suzume");
+        // meuFilme.setNome("Suzume");
         meuFilme.setAnoDeLancamento(2022);
         meuFilme.setDuracaoEmMinutos(120);
 
@@ -31,8 +33,8 @@ public class Principal {
         minhaSerie.setMinutosPorEpisodio(15);
         System.out.println("Duração para maratonar MAD: " + minhaSerie.getDuracaoEmMinutos());
 
-        Filme outroFilme = new Filme();
-        outroFilme.setNome("Avatar");
+        Filme outroFilme = new Filme("Avatar");
+        // outroFilme.setNome("Avatar");
         outroFilme.setAnoDeLancamento(2012);
         outroFilme.setDuracaoEmMinutos(200);
 
@@ -47,5 +49,22 @@ public class Principal {
         episodio.setSerie(minhaSerie);
         episodio.setTotalVisualizacoes(500);
         filtro.filtra(episodio);
+
+        var filmeDoNicolas = new Filme("Transformers");
+        // filmeDoNicolas.setNome("Transformers");
+        filmeDoNicolas.setDuracaoEmMinutos(128);
+        filmeDoNicolas.setAnoDeLancamento(2007);
+        filmeDoNicolas.avalia(8);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(filmeDoNicolas);
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(outroFilme);
+        System.out.println("Tamanho da lista de filmes " + listaDeFilmes.size());
+        System.out.println("Primeiro filme " + listaDeFilmes.get(0).getNome());
+        System.out.println(listaDeFilmes);
+        System.out.println("toString do filme: " + listaDeFilmes.get(0).toString());
+
+
     }
 }
