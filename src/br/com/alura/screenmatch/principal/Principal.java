@@ -18,8 +18,6 @@ public class Principal {
         meuFilme.setDuracaoEmMinutos(120);
 
         meuFilme.exibirFichaTecnica();
-        meuFilme.avalia(8);
-        meuFilme.avalia(5);
         meuFilme.avalia(10);
         System.out.println("Total de avaliações: " + meuFilme.getTotalAvaliacoes());
         System.out.println(meuFilme.pegaMedia());

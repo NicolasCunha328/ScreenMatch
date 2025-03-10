@@ -12,7 +12,11 @@ public class PrincipalComListas {
         Filme outroFilme = new Filme("Avatar", 2012);
         var filmeDoNicolas = new Filme("Transformers", 2007);
         filmeDoNicolas.avalia(10);
+        meuFilme.avalia(8);
+        outroFilme.avalia(10);
         Serie minhaSerie = new Serie("MAD", 2012);
+
+        Filme f1 = filmeDoNicolas;
 
         ArrayList<Titulo> lista = new ArrayList<>();
         lista.add(filmeDoNicolas);
@@ -21,8 +25,9 @@ public class PrincipalComListas {
         lista.add(minhaSerie);
         for (Titulo item: lista){
             System.out.println(item.getNome());
-            Filme filme = (Filme) item;
-            System.out.println("Classificação " + filme.getClassificacao());
+            if (item instanceof Filme filme && filme.getClassificacao() > 2) {
+                System.out.println("Classificação " + filme.getClassificacao());
+            }
         }
     }
 }
